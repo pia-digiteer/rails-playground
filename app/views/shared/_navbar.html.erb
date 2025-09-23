@@ -1,9 +1,21 @@
 <div class="nav sticky-top bg-black d-flex justify-content-start align-items-center px-3">
-    <%= link_to root_url, class: "navbar-brand d-flex flex-row me-5" do %>
-		<img src="https://www.computerhope.com/jargon/c/ctrl-key.png" width="60px" height="auto" />
-		<p class="h4 text-white pt-1">+Cart</p>
+    <%= link_to root_url, class: "navbar-brand d-flex flex-row me-4" do %>
+    <img src="https://www.computerhope.com/jargon/c/ctrl-key.png" width="60px" height="auto" />
+    <p class="h4 text-white pt-1">+Cart</p>
     <% end %>
     <div>
-		<%= link_to "Cart", page_url, class:"nav-item" %>
+        <%= link_to "Home", root_url, class:"nav-item" %>
+    </div>
+    <div>
+        <%= link_to "Cart", page_url, class:"nav-item" %>
+    </div>
+    <div>
+        <%= link_to "Profile", page_url, class:"nav-item disabled" %>
+    </div>
+    <div>
+        <%= link_to "Login", page_url, class:"nav-item disabled" %>
+    </div>
+    <div>
+        <%= link_to "Register", page_url, class:"nav-item disabled" %>
     </div>
 </div>
