@@ -1,21 +1,14 @@
-<h2>hello</h2>
-<p>MMMMMMM</p>
-
+<h2 class="my-4">Store</h2>
 <div class="grid">
-	<p>test</p>
-	<p>test</p>
-	<p>test</p>
-	<p>test</p>
-	<p>test</p>
-	<p>test</p>
-	<p>test</p>
-	<p>test</p>
-	<p>test</p>
-	<p>test</p>
-	<p>test</p>
-	<p>test</p>
-	<p>test</p>
-	<p>test</p>
-	<p>test</p>
-	<p>test</p>
+    <% 24.times do |i| %>
+    <div class="card d-flex flex-column">
+        <%= image_tag "https://picsum.photos/seed/product-img-#{i}/600/400", alt: "product##{i}", class: "card-img-top" %>
+        <div class="mx-3 mt-2 mb-3">
+			<%= content_tag :p, "Product ##{i}", class: "m-0 h5" %>
+            <p class="m-0">Price</p>
+            <p class="m-0">Description</p>
+            <button type="button" class="btn btn-primary px-2 py-0">Add to Cart</button>
+        </div>
+    </div>
+    <% end %>
 </div>
