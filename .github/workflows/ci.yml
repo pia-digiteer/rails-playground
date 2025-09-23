@@ -87,6 +87,12 @@ jobs:
 
       - name: Run tests
         env:
+          PG_USERNAME: ${{ secrets.PG_USERNAME }}
+          PG_PASSWORD: ${{ secrets.PG_PASSWORD }}
+          PG_HOST: ${{ secrets.PG_HOST }}
+          PG_DATABASE: ${{ secrets.PG_DATABASE }}
+          PG_DATABASE_TEST: ${{ secrets.PG_DATABASE_TEST }}
+          PG_DATABASE_PROD: ${{ secrets.PG_DATABASE_PROD }}
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
           # REDIS_URL: redis://localhost:6379/0
