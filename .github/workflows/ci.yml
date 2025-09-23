@@ -57,14 +57,19 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-        ports:
-          - 5432:5432
-        options: --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=3
+  postgres:
+    image: postgres:15
+    env:
+      POSTGRES_USER: ${{ secrets.PG_USERNAME }}
+      POSTGRES_PASSWORD: ${{ secrets.PG_PASSWORD }}
+      POSTGRES_DB: ${{ secrets.PG_DATABASE_TEST }}
+    ports:
+      - 5432:5432
+    options: >-
+      --health-cmd "pg_isready -U ${{ secrets.PG_USERNAME }}"
+      --health-interval 10s
+      --health-timeout 5s
+      --health-retries 5
 
       # redis:
       #   image: redis
@@ -89,14 +94,20 @@ jobs:
         env:
           PG_USERNAME: ${{ secrets.PG_USERNAME }}
           PG_PASSWORD: ${{ secrets.PG_PASSWORD }}
-          PG_HOST: ${{ secrets.PG_HOST }}
-          PG_DATABASE: ${{ secrets.PG_DATABASE }}
+          PG_HOST: localhost
           PG_DATABASE_TEST: ${{ secrets.PG_DATABASE_TEST }}
-          PG_DATABASE_PROD: ${{ secrets.PG_DATABASE_PROD }}
           RAILS_ENV: test
-          DATABASE_URL: postgres://postgres:postgres@localhost:5432
-          # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails db:test:prepare test test:system
+        run: |
+          # Wait a few seconds for Postgres to be ready
+          until pg_isready -h $PG_HOST -U $PG_USERNAME; do
+            echo "Waiting for Postgres..."
+            sleep 2
+          done
+          # Prepare the test database
+          bin/rails db:create db:migrate
+          # Run all tests
+          bin/rails test test test:system
+
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
