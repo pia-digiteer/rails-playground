@@ -1,6 +1,9 @@
-<div class="nav bg-black d-flex justify-content-between align-items-center px-3 w-100" fixed="top">
-    <div class="nav-brand" href="#">
-        <img src="https://www.computerhope.com/jargon/c/ctrl-key.png" width="50px" class="" />
-		<span class="h5 text-white m-0 p-0">+ Cart</span>
+<div class="nav sticky-top bg-black d-flex justify-content-start align-items-center px-3">
+    <%= link_to root_url, class: "navbar-brand d-flex flex-row me-5" do %>
+		<img src="https://www.computerhope.com/jargon/c/ctrl-key.png" width="60px" height="auto" />
+		<p class="h4 text-white pt-1">+Cart</p>
+    <% end %>
+    <div>
+		<%= link_to "Cart", page_url, class:"nav-item" %>
     </div>
 </div>
