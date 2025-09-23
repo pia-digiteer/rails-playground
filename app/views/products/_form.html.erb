@@ -13,27 +13,27 @@
 
   <div>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, :required => true %>
   </div>
 
   <div>
     <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+    <%= form.text_field :price, :required => true %>
   </div>
 
   <div>
     <%= form.label :qty, style: "display: block" %>
-    <%= form.number_field :qty %>
+    <%= form.number_field :qty, :required => true %>
   </div>
 
   <div>
     <%= form.label :desc, style: "display: block" %>
-    <%= form.textarea :desc %>
+    <%= form.textarea :desc, :required => true %>
   </div>
 
   <div>
     <%= form.label :image_url, style: "display: block" %>
-    <%= form.text_field :image_url %>
+    <%= form.text_field :image_url, :required => true %>
   </div>
 
   <div>
