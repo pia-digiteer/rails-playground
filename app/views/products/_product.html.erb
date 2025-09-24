@@ -1,27 +1,12 @@
-<div id="<%= dom_id product %>">
-  <p>
-    <strong>Name:</strong>
-    <%= product.name %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= product.price %>
-  </p>
-
-  <p>
-    <strong>Qty:</strong>
-    <%= product.qty %>
-  </p>
-
-  <p>
-    <strong>Desc:</strong>
-    <%= product.desc %>
-  </p>
-
-  <p>
-    <strong>Image url:</strong>
-    <%= product.image_url %>
-  </p>
-
+<div id="<%= dom_id product %>" class="d-flex flex-row">
+    <%= image_tag product.image_url, alt: product.name, class: "card-img-top" %>
+    <div class="ms-5">
+        <%= link_to "Back", product, class: "btn btn-dark px-2 py-0" %>
+        <%= content_tag :p, product.name, class: "m-0 h5" %>
+        <%= content_tag :p, "Php#{product.price}", class: "m-0" %>
+        <%= content_tag :p, product.desc, class: "m-0 pb-2" %>
+        <div class="d-flex flex-row justify-content-between align-items-center">
+            <button type="button" class="btn btn-primary px-2 py-0">Add to Cart</button>
+        </div>
+    </div>
 </div>
