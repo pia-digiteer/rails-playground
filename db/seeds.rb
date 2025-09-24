@@ -16,14 +16,16 @@ require("bigdecimal/util")
 
   # prevent duplicate seeds
   Product.find_or_create_by!(
-    name: PRODUCT_NAME,
+    name: product_name,
     # ensure Faker returns bigdecimal value (as price returns float) 
     price: Faker::Commerce.price(as_string: false).to_d,
     qty: rand(1..100),
     # generate lipsum sentence with random 10-30 words length
     desc: Faker::Lorem.sentence(word_count: rand(10..30)),
     # fetch random picsum img using unique product name as seed
-    image_url: "https://picsum.photos/seed/#{PRODUCT_NAME}/600/400"
+    image_url: "https://picsum.photos/seed/#{product_name}/600/400",
+    # randomly set item as featured
+    is_featured: rand <= 0.1
   )
 end
 

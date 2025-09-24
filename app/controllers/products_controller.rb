@@ -4,6 +4,9 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @products = Product.all
+    # render featured/unfeatured products conditionally
+    @unfeatured_products = Product.where(is_featured: false)
+    @featured_products = Product.where(is_featured: true)
   end
 
   # GET /products/1 or /products/1.json
@@ -65,6 +68,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.expect(product: [ :name, :price, :qty, :desc, :image_url ])
+      params.expect(product: [ :name, :price, :qty, :desc, :image_url, :is_featured ])
     end
 end
