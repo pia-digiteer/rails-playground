@@ -9,12 +9,8 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
-body {
-	display: flex;
-	flex-direction: column;
-}
-
 /* navbar */
+
 .nav {
 	height: 60px !important;
 }
@@ -35,15 +31,10 @@ body {
 	color: gray !important;
 }
 
-/* page stuff */
 .content {
 	min-height: calc(100vh - 60px);
 	padding: 0px 60px;
 	padding-bottom: 10vh;
-}
-
-h2 {
-	color: red;
 }
 
 .grid {
@@ -53,4 +44,8 @@ h2 {
 	grid-template-rows: 1fr;
 	column-gap: 15px;
 	row-gap: 25px;
+}
+
+.card-img-container p {
+	position: absolute;
 }

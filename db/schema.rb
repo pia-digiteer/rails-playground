@@ -15,11 +15,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_23_080231) do
   enable_extension "pg_catalog.plpgsql"
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.decimal "price"
-    t.integer "qty"
+    t.string "name", null: false
+    t.decimal "price", null: false
+    t.integer "qty", null: false
     t.text "desc"
-    t.string "image_url"
+    t.string "image_url", null: false
+    t.boolean "is_featured", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
