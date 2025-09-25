@@ -1,8 +1,9 @@
-<div class="nav sticky-top bg-black d-flex justify-content-start align-items-center px-3">
+<div class="nav sticky-top bg-white d-flex justify-content-start align-items-center px-3">
     <%= link_to root_url, class: "navbar-brand d-flex flex-row me-4" do %>
-    <img src="https://www.computerhope.com/jargon/c/ctrl-key.png" width="60px" height="auto" />
-    <p class="h4 text-white pt-1">+Cart</p>
+    <%= image_tag "store-logo.svg" %>
     <% end %>
+
+    <i class="fa-solid fa-store"></i>
     <div>
         <%= link_to "Store", root_url, class:"nav-item" %>
     </div>
