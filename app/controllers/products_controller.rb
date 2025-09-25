@@ -5,8 +5,8 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     # render featured/unfeatured products conditionally
-    @unfeatured_products = Product.where(is_featured: false)
-    @featured_products = Product.where(is_featured: true)
+    @unfeatured_products = @products.where(is_featured: false)
+    @featured_products = @products.where(is_featured: true)
   end
 
   # GET /products/1 or /products/1.json
