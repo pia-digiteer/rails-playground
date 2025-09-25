@@ -1,15 +1,12 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+@font-face {
+  font-family: "Integral-CF";
+  src: url("integralcf-bold.otf") format("opentype");
+}
 
-/* navbar */
+.headline {
+  font-family: "Integral-CF", sans-serif;
+  font-size: 64px;
+}
 
 .nav {
 	height: 60px !important;
@@ -23,7 +20,7 @@
 }
 
 .nav a:not(.disabled) {
-	color: white !important;
+	color: black !important;
 }
 
 .disabled {
@@ -31,10 +28,37 @@
 	color: gray !important;
 }
 
-.content {
-	min-height: calc(100vh - 60px);
-	padding: 0px 60px;
-	padding-bottom: 10vh;
+.view-height {
+	position: relative;
+	height: calc(100vh - 60px);
+}
+
+.header>*:not(img) {
+	width: 50%;
+	padding-top: 50px;
+	padding-left: 75px;
+	z-index: 2 !important;
+}
+
+.view-height img {
+	position: absolute;
+	bottom: 0;
+	right: 60px;
+	height: inherit;
+	padding-top: 35px;
+	z-index: 0;
+}
+
+.header {
+	background: #f2f0f1;
+}
+
+.brands>.logo {
+	filter: invert(1) !important;
+	--webkit-filter: invert(1) !important;
+	height: 50px !important;
+	width: auto !important;
+	margin: 20px 0px;
 }
 
 .grid {
