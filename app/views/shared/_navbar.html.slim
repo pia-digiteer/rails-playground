@@ -1,0 +1,14 @@
+.nav.sticky-top.bg-white.d-flex.justify-content-start.align-items-center.px-3
+  = link_to root_url, class: "navbar-brand d-flex flex-row me-4" do
+    = image_tag "store-logo.svg"
+  i.fa-solid.fa-store
+  div
+    = link_to "Store", products_path, class:"nav-item"
+  div
+    = link_to "Cart", page_url, class:"nav-item"
+  div
+    = link_to "Profile", page_url, class:"nav-item disabled"
+  div
+    = link_to "Login", page_url, class:"nav-item disabled"
+  div
+    = link_to "Register", page_url, class:"nav-item disabled"

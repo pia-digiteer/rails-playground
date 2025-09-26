@@ -1,0 +1,106 @@
+@use "bootstrap" as *;
+
+$headline-font: "Integral-CF", sans-serif;
+$navbar-height: 60px;
+
+
+@font-face {
+	font-family: "Integral-CF";
+	src: url("integralcf-bold.otf") format("opentype");
+}
+
+.headline {
+	font-family: $headline-font;
+	font-size: 64px;
+	line-height: 100%;
+}
+
+.nav {
+	height: $navbar-height !important;
+}
+
+.nav a {
+	text-decoration: none !important;
+	font-weight: normal;
+	margin: 0px 10px;
+	padding: 3px;
+}
+
+.nav a:not(.disabled) {
+	color: black !important;
+}
+
+.disabled {
+	pointer-events: none;
+	color: gray !important;
+}
+
+.view-height {
+	height: calc(100vh - $navbar-height);
+}
+
+.header {
+	height: 510px;
+	overflow: hidden;
+}
+
+.header>*:not(:last-child) {
+	height: inherit;
+	max-width: 50%;
+	z-index: 2 !important;
+}
+
+.header-img {
+	max-width: 50%;
+	width: auto;
+	height: auto;
+	margin-top: 25px;
+	object-fit: contain;
+	object-position: bottom center;
+}
+
+.header {
+	background: #f2f0f1;
+}
+
+.brands>.logo {
+	filter: invert(1) !important;
+	--webkit-filter: invert(1) !important;
+	height: 40px !important;
+	width: auto !important;
+	margin: 15px 0px;
+}
+
+.brands>.logo:hover {
+	cursor: pointer;
+}
+
+.grid {
+	display: grid;
+	width: inherit;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-template-rows: 1fr;
+	column-gap: 15px;
+	row-gap: 25px;
+}
+
+.card-img-container p {
+	position: absolute;
+}
+
+#shop-btn {
+	background: black !important;
+	width: 35%;
+	padding: 10px 0px;
+}
+
+#shop-btn:hover {
+	background: rgb(37, 37, 37) !important;
+}
+
+.header-grid {
+	display: grid !important;
+	width: 100% !important;
+	grid-template-columns: repeat(3, auto) !important;
+	column-gap: 6% !important;
+}
