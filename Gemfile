@@ -1,5 +1,10 @@
 source "https://rubygems.org"
 
+gem "slim-rails" # html.slim
+gem "html2slim", github: "slim-template/html2slim" # erb-slim converter
+gem "dartsass-rails"
+gem "bootstrap"
+
 gem "dotenv-rails", groups: [:development, :test] # rubocop:disable Layout/SpaceInsideArrayLiteralBrackets
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

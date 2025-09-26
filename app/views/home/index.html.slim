@@ -1,0 +1,63 @@
+.w-100.m-0.header.d-flex.flex-row.justify-content-evenly data-controller="test"
+  .h-100.px-5.d-flex.flex-column.justify-content-evenly.align-items-start
+    h1.m-0.headline.text-black
+      | FIND CLOTHING THAT MATCHES YOUR STYLE.
+    p.m-0.text-muted
+      | Browse through our diverse range of meticulously-crafted garments, designed to bring out your individuality and cater to your sense of style.
+    = link_to "Shop Now", products_path, class: "btn btn-dark rounded-pill", id: "shop-btn"
+    .header-grid
+      .border-end.border-dark-subtle
+        = content_tag :h1, "#{generate_random_stats(magnitude: 1, max: 10)}+", class: "m-0 fw-bold"
+        p.m-0.small.text-muted
+          | International Brands
+      .border-end.border-dark-subtle
+        = content_tag :h1, "#{generate_random_stats(magnitude: 2, min: 10)}+", class: "m-0 fw-bold"
+        p.m-0.small.text-muted
+          | High-Quality Products
+      div
+        = content_tag :h1, "#{generate_random_stats(magnitude: 3, min: 10)}+", class: "m-0 fw-bold"
+        p.m-0.small.text-muted
+          | Happy Customers
+  = image_tag "header-img.png", class: "header-img justify-self-end"
+  
+.bg-black.brands.d-flex.justify-content-evenly.align-items-center
+  - 10.times do
+    = image_tag "https://logos-world.net/wp-content/uploads/2022/04/Chanel-Logo.png", class: "logo"
+p[style="color: green"]
+  = notice
+- content_for :title, "Products"
+.d-flex.flex-row.justify-content-between.align-items-center.mb-4
+  h2.m-0
+    | Featured
+  div
+    = link_to "Add Product", new_product_path, class: "btn btn-success"
+.grid
+  - @featured_products.each do |product|
+    .card.d-flex.flex-column
+      .card-img-container
+        = content_tag :p, "#{"Featured!" if product.is_featured}", class: "my-2 text-white bg-success py-0 px-1 text-small"
+        = image_tag product.image_url, alt: product.name, class: "card-img-top"
+      .mx-2.mt-1.mb-2
+        = content_tag :p, product.name, class: "m-0 h5"
+        = content_tag :p, "Php#{product.price}", class: "m-0"
+        = content_tag :p, product.desc, class: "m-0 pb-2 text-truncate"
+        .d-flex.flex-row.justify-content-between.align-items-center
+          = link_to "View Product", product, class: "btn btn-info"
+          button.btn.btn-primary[type="button"]
+            | Add to Cart
+h2.my-3.mb-4
+  | Store
+.grid
+  - @unfeatured_products.each do |product|
+    .card.d-flex.flex-column
+      .card-img-container
+        = content_tag :p, "#{"Featured!" if product.is_featured}", class: "my-2 text-white bg-success py-0 px-1 text-small"
+        = image_tag product.image_url, alt: product.name, class: "card-img-top"
+      .mx-2.mt-1.mb-2
+        = content_tag :p, product.name, class: "m-0 h5"
+        = content_tag :p, "Php#{product.price}", class: "m-0"
+        = content_tag :p, product.desc, class: "m-0 pb-2 text-truncate"
+        .d-flex.flex-row.justify-content-between.align-items-center
+          = link_to "View Product", product, class: "btn btn-info"
+          button.btn.btn-primary[type="button"]
+            | Add to Cart
