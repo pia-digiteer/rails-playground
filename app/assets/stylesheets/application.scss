@@ -2,7 +2,7 @@
 
 $headline-font: "Integral-CF", sans-serif;
 $navbar-height: 60px;
-
+$header-height: 580px;
 
 @font-face {
 	font-family: "Integral-CF";
@@ -40,7 +40,8 @@ $navbar-height: 60px;
 }
 
 .header {
-	height: 510px;
+	min-height: 500px;
+	max-height: $header-height;
 	overflow: hidden;
 }
 
@@ -51,7 +52,6 @@ $navbar-height: 60px;
 }
 
 .header-img {
-	max-width: 50%;
 	width: auto;
 	height: auto;
 	margin-top: 25px;
@@ -64,15 +64,14 @@ $navbar-height: 60px;
 }
 
 .brands>.logo {
-	filter: invert(1) !important;
-	--webkit-filter: invert(1) !important;
-	height: 40px !important;
+	background-color: transparent !important;
 	width: auto !important;
-	margin: 15px 0px;
+	margin: 15px 0px !important;
 }
 
 .brands>.logo:hover {
 	cursor: pointer;
+	scale: 1.05;
 }
 
 .grid {

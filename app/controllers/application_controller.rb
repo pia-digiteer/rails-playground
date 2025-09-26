@@ -1,13 +1,16 @@
 # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
 class ApplicationController < ActionController::Base
-  include ActionView::Helpers::NumberHelper
-
   allow_browser versions: :modern
 
-  before_action :products
-  helper_method :products, :generate_random_stats
+  before_action :load_all
+  helper_method :products, :brands
 
   private
+
+  def load_all
+    products
+    brands
+  end
 
   def products
     @products ||= Product.all
@@ -16,9 +19,7 @@ class ApplicationController < ActionController::Base
     @featured_products = @products.where(is_featured: true)
   end
 
-  def generate_random_stats(magnitude: 1, max: 99, min: 1)
-      base  = rand(min..max)
-      zeros = 10 ** magnitude
-      number_with_delimiter(base * zeros)
+  def brands
+    @brands ||= Brand.all
   end
 end
