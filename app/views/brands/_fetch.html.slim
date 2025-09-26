@@ -1,0 +1,4 @@
+.bg-black.brands.d-flex.flex-wrap.justify-content-evenly.align-items-center
+  - @brands.each do |brand|
+    div.logo data-controller="brands" data-brands-domain-value=brand.website data-brands-width-value="100" data-brands-height-value="100" data-brands-client-id-value=ENV["BRANDFETCH_CLIENT_ID"]
+      div data-brands-target="output"

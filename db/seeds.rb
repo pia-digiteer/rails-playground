@@ -10,6 +10,25 @@
 
 require("bigdecimal/util")
 
+# Clear existing data to avoid duplicates
+Brand.destroy_all
+Product.destroy_all
+
+brands = [
+  { name: "Gucci", website: "gucci.com" },
+  { name: "Louisvuitton", website: "louisvuitton.com" },
+  { name: "Chanel", website: "chanel.com" },
+  { name: "Prada", website: "prada.com" },
+  { name: "Dior", website: "dior.com" },
+  { name: "Hermes", website: "hermes.com" },
+  { name: "Burberry", website: "burberry.com" },
+  { name: "Versace", website: "versace.com" }
+]
+
+brands.each do |b|
+  Brand.create!(b)
+end
+
 48.times do
   # get and store unique name for product
   product_name = Faker::Commerce.unique.product_name
@@ -17,7 +36,7 @@ require("bigdecimal/util")
   # prevent duplicate seeds
   Product.find_or_create_by!(
     name: product_name,
-    # ensure Faker returns bigdecimal value (as price returns float) 
+    # ensure Faker returns bigdecimal value (as price returns float)
     price: Faker::Commerce.price(as_string: false).to_d,
     qty: rand(1..100),
     # generate lipsum sentence with random 10-30 words length

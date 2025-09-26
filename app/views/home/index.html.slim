@@ -20,11 +20,11 @@
           | Happy Customers
   = image_tag "header-img.png", class: "header-img justify-self-end"
 
-.bg-black.brands.d-flex.justify-content-evenly.align-items-center
-  - 10.times do
-    = image_tag "https://logos-world.net/wp-content/uploads/2022/04/Chanel-Logo.png", class: "logo"
+= render "brands/fetch"
+
 p[style="color: green"]
   = notice
+
 - content_for :title, "Products"
 .d-flex.flex-row.justify-content-between.align-items-center.mb-4
   h2.m-0

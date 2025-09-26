@@ -33,7 +33,7 @@ export default class extends Controller {
 			this.statsTarget.textContent = formattedStats
 		}
 
-		console.log({ formattedStats, min, max, magnitude })
+		console.log("generated stat:", {formattedStats, min, max, magnitude })
 
 		return formattedStats
 	}
